@@ -20,6 +20,11 @@
 > [!NOTE]
 > このプロジェクトでは、タスクランナーとして `just` を利用するため、必要に応じて[インストール](https://github.com/casey/just?tab=readme-ov-file#installation)してください。
 
+- `.env` の作成
+```sh
+$ cp .env.example .env
+```
+
 - docker を用いて、go と mysql のコンテナを立ち上げる。
 ```
 $ just bootstrap
