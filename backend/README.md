@@ -17,6 +17,9 @@
 
 ## 環境構築
 
+> [!NOTE]
+> このプロジェクトでは、タスクランナーとして `just` を利用するため、必要に応じて[インストール](https://github.com/casey/just?tab=readme-ov-file#installation)してください。
+
 - docker を用いて、go と mysql のコンテナを立ち上げる。
 ```
 $ just bootstrap
