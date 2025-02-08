@@ -1,0 +1,5 @@
+ARG MYSQL_VERSION=9.0.0
+
+FROM mysql:${MYSQL_VERSION}
+
+ENV TZ Asia/Tokyo

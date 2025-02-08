@@ -1,0 +1,25 @@
+# Docker setup
+bootstrap:
+  docker compose up -d
+
+down:
+  docker compose down
+
+prune-a:
+  docker system prune -a
+
+it-go:
+  docker exec -it lrz-api bash
+
+it-db:
+  docker exec -it lrz-db bash
+
+# Go
+run:
+  go run cmd/main.go
+
+migrate:
+  go run internal/migrate/migrate.go
+
+test:
+  go test -v ./...

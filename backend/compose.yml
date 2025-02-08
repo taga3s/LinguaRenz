@@ -1,0 +1,33 @@
+services:
+  api:
+    container_name: lrz-api
+    tty: true
+    build:
+      context: .
+      dockerfile: docker/api/Dockerfile
+    ports:
+      - 8080:8080
+    volumes:
+      - ./:/app
+    depends_on:
+      - db
+    env_file: .env
+    
+  db:
+    container_name: lrz-db
+    build:
+      context: .
+      dockerfile: ./docker/db/Dockerfile
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_USER: ${DB_USER}
+    volumes:
+      - db-store:/var/lib/mysql
+      - ./docker/db/conf/my.cnf:/etc/my.cnf
+
+volumes:
+  db-store:
