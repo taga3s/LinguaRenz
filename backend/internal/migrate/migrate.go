@@ -3,11 +3,14 @@ package main
 import (
 	"fmt"
 	"linguarenz/internal/db"
+	"log"
 )
 
 func main() {
-	dbConn := db.NewDB()
+	if err := db.NewDB(); err != nil {
+		log.Fatal(err)
+	}
 	defer fmt.Println("Successfully Migrated")
-	defer db.CloseDB(dbConn)
+	defer db.CloseDB()
 	// migrate
 }

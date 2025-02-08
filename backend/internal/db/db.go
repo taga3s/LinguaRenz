@@ -10,7 +10,9 @@ import (
 	"gorm.io/gorm"
 )
 
-func NewDB() *gorm.DB {
+var gormDB *gorm.DB
+
+func NewDB() error {
 	err := godotenv.Load()
 	if err != nil {
 		log.Fatalln(err)
@@ -27,16 +29,36 @@ func NewDB() *gorm.DB {
 
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
-		log.Fatalln(err)
+		return err
 	}
-	fmt.Println("Connected")
+	log.Println("Connected to database 🚀")
 
-	return db
+	gormDB = db
+
+	return nil
 }
 
-func CloseDB(db *gorm.DB) {
-	sqlDB, _ := db.DB()
+func GetDB() *gorm.DB {
+	return gormDB
+}
+
+func CloseDB() {
+	// Access the raw *sql.DB object
+	sqlDB, err := gormDB.DB()
+	if err != nil {
+		log.Fatalf("Error getting *sql.DB object: %v", err)
+	}
+
 	if err := sqlDB.Close(); err != nil {
 		log.Fatalln(err)
 	}
+}
+
+func CheckConnection() error {
+	sqlDB, _ := gormDB.DB()
+	if err := sqlDB.Ping(); err != nil {
+		return err
+	}
+
+	return nil
 }
