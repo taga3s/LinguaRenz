@@ -1,9 +1,5 @@
-import { Button } from "@/components/ui/button";
+import { UserButton } from "@stackframe/stack";
 
-export default function Home() {
-	return (
-		<div>
-			<Button>Hello, LingaRenz!</Button>
-		</div>
-	);
+export default function Page() {
+	return <UserButton />;
 }
