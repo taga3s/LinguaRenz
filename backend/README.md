@@ -47,5 +47,5 @@ $ just migrate
 
 - mysql のコンテナに接続する。
 ```
-$ just it-mysql
+$ just it-db
 ```
