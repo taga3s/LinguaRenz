@@ -28,7 +28,7 @@ jobs:
         run: pnpm install
 
       - name: Build
-        run: pnpm build
+        run: pnpm pages:build
 
       - name: Publish to Cloudflare Pages
         id: cloudflare-pages-deploy
@@ -37,7 +37,7 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           workingDirectory: frontend
-          command: pages deploy dist --project-name=linguarenz
+          command: pages deploy
 
       # - name: Add publish URL as commit status
       #   uses: actions/github-script@v7
