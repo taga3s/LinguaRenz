@@ -12,7 +12,7 @@
 - biome
 
 ### ホスティング
-- Cloudflare Pages
+- Vercel
 
 ## 環境構築
 
