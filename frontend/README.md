@@ -1,5 +1,8 @@
 # LinguaRenz-frontend
 
+- 本番環境: https://lingua-renz.vercel.app/
+- プレビュー: https://lingua-renz-dev.vercel.app/
+
 ## 技術スタック
 
 ### 言語・フレームワーク
@@ -10,6 +13,9 @@
 
 ### ツールチェイン
 - biome
+
+### 認証
+- Stack Auth
 
 ### ホスティング
 - Vercel
