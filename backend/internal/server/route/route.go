@@ -5,7 +5,6 @@ import (
 	uc "linguarenz/internal/controller/user_controller"
 	"linguarenz/internal/db"
 	ur "linguarenz/internal/infrastracture/repository/user_repository"
-	"linguarenz/internal/server/middleware"
 	us "linguarenz/internal/service/user"
 
 	"github.com/gin-gonic/gin"
@@ -20,7 +19,7 @@ func InitRoute(r *gin.Engine) {
 	us := us.NewUserService(ur)
 	uc := uc.NewUserController(us)
 
-	r.Use(middleware.Verify())
+	// r.Use(middleware.Verify())
 	r.GET("/health", hc.HealthCheck())
 	user := r.Group("user")
 	{
