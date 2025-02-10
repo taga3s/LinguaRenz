@@ -6,6 +6,7 @@ import (
 )
 
 type IUserService interface {
+	FindById(id string) (*um.User, error)
 	Register(user um.User) error
 }
 
@@ -15,6 +16,14 @@ type UserService struct {
 
 func NewUserService(ur ur.IUserRepository) IUserService {
 	return &UserService{ur}
+}
+
+func (us *UserService) FindById(id string) (*um.User, error) {
+	user, err := us.ur.FindById(id)
+	if err != nil {
+		return nil, err
+	}
+	return user, nil
 }
 
 func (us *UserService) Register(user um.User) error {

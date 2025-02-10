@@ -3,7 +3,7 @@ package user_model
 import "time"
 
 type User struct {
-	ID              string `gorm:"primaryKey"`
-	GoogleAccountID string
-	CreatedAt       time.Time
+	ID              string    `json:"id" gorm:"primaryKey"`
+	GoogleAccountID string    `json:"google_account_id"`
+	CreatedAt       time.Time `json:"created_at"`
 }

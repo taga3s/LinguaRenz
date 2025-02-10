@@ -23,6 +23,7 @@ func InitRoute(r *gin.Engine) {
 	r.GET("/health", hc.HealthCheck())
 	user := r.Group("user")
 	{
+		user.GET("/:id", uc.FindById())
 		user.POST("/registration", uc.Register())
 	}
 }

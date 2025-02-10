@@ -14,6 +14,7 @@ import (
 )
 
 type IUserController interface {
+	FindById() func(*gin.Context)
 	Register() func(*gin.Context)
 }
 
@@ -23,6 +24,19 @@ type UserController struct {
 
 func NewUserController(us us.IUserService) IUserController {
 	return &UserController{us}
+}
+
+func (uc *UserController) FindById() func(*gin.Context) {
+	return func(c *gin.Context) {
+		id := c.Param("id")
+		user, err := uc.us.FindById(id)
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"message": err.Error()})
+			return
+		}
+
+		c.JSON(200, gin.H{"user": user})
+	}
 }
 
 func (uc *UserController) Register() func(*gin.Context) {

@@ -7,7 +7,7 @@ import (
 )
 
 type IUserRepository interface {
-	GetById(id string) (*um.User, error)
+	FindById(id string) (*um.User, error)
 	Create(user *um.User) error
 }
 
@@ -19,7 +19,7 @@ func NewUserRepository(db *gorm.DB) IUserRepository {
 	return &UserRepository{db}
 }
 
-func (ur *UserRepository) GetById(id string) (*um.User, error) {
+func (ur *UserRepository) FindById(id string) (*um.User, error) {
 	user := &um.User{}
 	if err := ur.db.Where("id = ?", id).First(user).Error; err != nil {
 		return nil, err
