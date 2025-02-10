@@ -5,7 +5,6 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"log"
 	"net/http"
 	"os"
 
@@ -71,25 +70,28 @@ func Verify() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		jwks, err := fetchJWKS()
 		if err != nil {
-			log.Println("Failed to fetch JWKS:", err)
 			c.JSON(http.StatusInternalServerError, gin.H{"message": "Something went wrong"})
+			c.Abort()
 			return
 		}
 
 		accessToken := getAccessToken(c)
 		token, err := verifyToken(accessToken, jwks)
 		if err != nil {
-			log.Println("Invalid user:", err)
 			c.JSON(http.StatusUnauthorized, gin.H{"message": "Invalid user"})
+			c.Abort()
 			return
 		}
 
-		if claims, ok := token.Claims.(jwt.MapClaims); ok && token.Valid {
-			c.Set("userID", claims["sub"])
-			c.Next()
-		} else {
-			log.Println("Invalid user")
+		claims, ok := token.Claims.(jwt.MapClaims)
+		if !ok || !token.Valid {
 			c.JSON(http.StatusUnauthorized, gin.H{"message": "Invalid user"})
+			c.Abort()
+			return
 		}
+
+		c.Set("userID", claims["sub"])
+
+		c.Next()
 	}
 }
