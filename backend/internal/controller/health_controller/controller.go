@@ -1,4 +1,4 @@
-package healthhandler
+package health_controller
 
 import (
 	"linguarenz/internal/db"
