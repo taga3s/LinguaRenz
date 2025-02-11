@@ -4,8 +4,8 @@ import { stackServerApp } from "../stack";
 import { notoSans } from "./utils/fonts";
 import "./globals.css";
 // Test
-import { Logo } from "./public/Logo";
-import { BookmarksMenuIcon } from "./public/icons/BookmarksMenuIcon";
+import { Logo } from "../assets/Logo";
+import { BookmarksMenuIcon } from "../assets/icons/BookmarksMenuIcon";
 import Flag from "react-flagpack";
 
 export const metadata: Metadata = {
