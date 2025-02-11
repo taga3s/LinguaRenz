@@ -3,11 +3,11 @@ package user_controller
 import (
 	"encoding/json"
 	"io"
+	"linguarenz/internal/config"
 	um "linguarenz/internal/model/user_model"
 	us "linguarenz/internal/service/user"
 	"log"
 	"net/http"
-	"os"
 
 	"github.com/gin-gonic/gin"
 	svix "github.com/svix/svix-webhooks/go"
@@ -48,8 +48,8 @@ func (uc *UserController) Register() func(*gin.Context) {
 			return
 		}
 
-		secret := os.Getenv("STACK_AUTH_WEBHOOK_SECRET")
-		wh, err := svix.NewWebhook(secret)
+		stackAuthConf := config.GetStackAuthConfig()
+		wh, err := svix.NewWebhook(stackAuthConf.WebHookSecret)
 		if err != nil {
 			log.Fatal(err)
 		}

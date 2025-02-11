@@ -2,6 +2,7 @@ package server
 
 import (
 	"context"
+	"linguarenz/internal/config"
 	"linguarenz/internal/server/route"
 	"log"
 	"net/http"
@@ -17,8 +18,10 @@ func Run(ctx context.Context) {
 	router := gin.Default()
 	route.InitRoute(router)
 
+	serverConf := config.GetServerConfig()
+
 	srv := &http.Server{
-		Addr:              ":8080",
+		Addr:              ":" + serverConf.Port,
 		Handler:           router,
 		ReadHeaderTimeout: 10 * time.Second,
 		ReadTimeout:       10 * time.Minute,
