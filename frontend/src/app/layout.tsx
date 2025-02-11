@@ -5,7 +5,7 @@ import { notoSans } from "./utils/fonts";
 import "./globals.css";
 // Test
 import { Logo } from "./public/Logo";
-import { BookmarksIcon } from "./public/icons/BookmarksIcon";
+import { BookmarksMenuIcon } from "./public/icons/BookmarksMenuIcon";
 import Flag from "react-flagpack";
 
 export const metadata: Metadata = {
@@ -21,9 +21,11 @@ export default function RootLayout({
 	return (
 		<html lang="ja">
 			<body className={`${notoSans.variable} antialiased`}>
-				<Logo per={50} />
-				<BookmarksIcon />
+				{/* TEST CODE: Please Remove Comment */}
+				{/* <Logo per={50} />
 				<Flag code="JP" hasBorder={false} />
+				<BookmarksMenuIcon /> */}
+				{/* ------ */}
 				<StackProvider app={stackServerApp}>
 					<StackTheme>{children}</StackTheme>
 				</StackProvider>
