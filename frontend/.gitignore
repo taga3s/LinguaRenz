@@ -10,6 +10,9 @@
 !.yarn/releases
 !.yarn/versions
 
+# icon pack
+/public/flags
+
 # testing
 /coverage
 
