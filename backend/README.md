@@ -13,7 +13,8 @@
 
 ### その他
 - docker
-- just
+- just (Command runner)
+- lefthook (Git hooks manager)
 
 ## 環境構築
 
