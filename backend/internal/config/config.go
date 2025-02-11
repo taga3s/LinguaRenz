@@ -20,22 +20,28 @@ func GetServerConfig() Server {
 }
 
 type DB struct {
-	ENV      string
-	Host     string
-	Name     string
-	User     string
-	Password string
-	Port     string
-	// DSN_PD   string
+	ENV         string
+	Host        string
+	Name        string
+	User        string
+	Password    string
+	Port        string
+	DSN_PREVIEW string
+	DSN_PROD    string
 }
 
 func GetDSN() (string, error) {
 	conf := getDBConfig()
 
 	// 本番用
-	// if conf.ENV == "prod" {
-	// 	return conf.DSN_PD, nil
-	// }
+	if conf.ENV == "prod" {
+		return conf.DSN_PROD, nil
+	}
+
+	// ステージング用
+	if conf.ENV == "preview" {
+		return conf.DSN_PREVIEW, nil
+	}
 
 	// 開発用
 	jst, err := time.LoadLocation("Asia/Tokyo")
@@ -58,13 +64,14 @@ func GetDSN() (string, error) {
 
 func getDBConfig() DB {
 	db := DB{
-		ENV:      os.Getenv("GO_ENV"),
-		Host:     os.Getenv("DB_HOST"),
-		Port:     os.Getenv("DB_PORT"),
-		Name:     os.Getenv("DB_DATABASE"),
-		User:     os.Getenv("DB_USER"),
-		Password: os.Getenv("DB_PASSWORD"),
-		// DSN_PD:   os.Getenv("DB_DSN_PD"),
+		ENV:         os.Getenv("GO_ENV"),
+		Host:        os.Getenv("DB_HOST"),
+		Port:        os.Getenv("DB_PORT"),
+		Name:        os.Getenv("DB_DATABASE"),
+		User:        os.Getenv("DB_USER"),
+		Password:    os.Getenv("DB_PASSWORD"),
+		DSN_PREVIEW: os.Getenv("DB_DSN_PREVIEW"),
+		DSN_PROD:    os.Getenv("DB_DSN_PROD"),
 	}
 	return db
 }
