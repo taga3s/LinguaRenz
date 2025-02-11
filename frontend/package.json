@@ -10,7 +10,7 @@
     "format": "biome format --write ./src tsconfig.json biome.json tailwind.config.ts postcss.config.mjs components.json",
     "lint": "biome lint --write ./src tsconfig.json biome.json tailwind.config.ts postcss.config.mjs components.json",
     "check": "biome ci --formatter-enabled=true --linter-enabled=true --organize-imports-enabled=false ./src tsconfig.json biome.json tailwind.config.ts postcss.config.mjs components.json",
-    "postinstall": "react-flagpack"
+    "react-flagpack:postinstall": "react-flagpack"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.2",
