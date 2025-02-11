@@ -5,7 +5,6 @@ import (
 	"log"
 	"os"
 
-	"github.com/joho/godotenv"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
@@ -13,11 +12,6 @@ import (
 var gormDB *gorm.DB
 
 func NewDB() error {
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatalln(err)
-	}
-
 	dsn := fmt.Sprintf(
 		"%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True&loc=Local",
 		os.Getenv("DB_USER"),
