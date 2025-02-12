@@ -1,0 +1,10 @@
+pre-commit:
+  parallel: true
+  commands:
+    frontend:
+      root: frontend
+      glob: "*.{js,ts,jsx,tsx,json}"
+      run: pnpm check
+    backend:
+      root: backend
+      run: go fmt ./...

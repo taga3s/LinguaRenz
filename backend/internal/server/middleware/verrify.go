@@ -5,8 +5,8 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"linguarenz/internal/config"
 	"net/http"
-	"os"
 
 	"github.com/gin-gonic/gin"
 	"github.com/go-jose/go-jose/v4"
@@ -14,8 +14,8 @@ import (
 )
 
 func getJwksURL() string {
-	projectID := os.Getenv("STACK_AUTH_PROJECT_ID")
-	return fmt.Sprintf("https://api.stack-auth.com/api/v1/projects/%s/.well-known/jwks.json", projectID)
+	stackAuthConf := config.GetStackAuthConfig()
+	return fmt.Sprintf("https://api.stack-auth.com/api/v1/projects/%s/.well-known/jwks.json", stackAuthConf.ProjectID)
 }
 
 type JWKSet struct {

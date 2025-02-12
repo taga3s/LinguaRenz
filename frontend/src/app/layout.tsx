@@ -1,20 +1,12 @@
 import type { Metadata } from "next";
 import { StackProvider, StackTheme } from "@stackframe/stack";
 import { stackServerApp } from "../stack";
-import { Geist, Geist_Mono } from "next/font/google";
+import { notoSans } from "./utils/fonts";
 import "./globals.css";
-
-//TODO: Change the font
-const geistSans = Geist({
-	variable: "--font-geist-sans",
-	subsets: ["latin"],
-});
-
-//TODO: Change the font
-const geistMono = Geist_Mono({
-	variable: "--font-geist-mono",
-	subsets: ["latin"],
-});
+// Test
+import { Logo } from "../assets/Logo";
+import { BookmarksMenuIcon } from "../assets/icons/BookmarksMenuIcon";
+import Flag from "react-flagpack";
 
 export const metadata: Metadata = {
 	title: "LinguaRenz",
@@ -28,9 +20,12 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="ja">
-			<body
-				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-			>
+			<body className={`${notoSans.variable} antialiased`}>
+				{/* TEST CODE: Please Remove Comment */}
+				{/* <Logo per={50} />
+				<Flag code="JP" hasBorder={false} />
+				<BookmarksMenuIcon /> */}
+				{/* ------ */}
 				<StackProvider app={stackServerApp}>
 					<StackTheme>{children}</StackTheme>
 				</StackProvider>
