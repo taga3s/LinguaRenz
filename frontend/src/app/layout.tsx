@@ -21,8 +21,12 @@ export default function RootLayout({
 				className={`${notoSans.variable} antialiased bg-lrz-bg-white text-lrz-text-black`}
 			>
 				<StackProvider app={stackServerApp}>
-					<SideTab />
-					<StackTheme>{children}</StackTheme>
+					<StackTheme>
+						<div className="flex">
+							<SideTab />
+							{children}
+						</div>
+					</StackTheme>
 				</StackProvider>
 			</body>
 		</html>
