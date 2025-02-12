@@ -3,6 +3,7 @@ import { StackProvider, StackTheme } from "@stackframe/stack";
 import { stackServerApp } from "../stack";
 import { notoSans } from "./utils/fonts";
 import "./globals.css";
+import SideTab from "../components/sidetab/SideTab";
 
 export const metadata: Metadata = {
 	title: "LinguaRenz",
@@ -20,6 +21,7 @@ export default function RootLayout({
 				className={`${notoSans.variable} antialiased bg-lrz-bg-white text-lrz-text-black`}
 			>
 				<StackProvider app={stackServerApp}>
+					<SideTab />
 					<StackTheme>{children}</StackTheme>
 				</StackProvider>
 			</body>
