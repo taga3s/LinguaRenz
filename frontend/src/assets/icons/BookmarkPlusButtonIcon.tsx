@@ -1,4 +1,4 @@
-import { LRZ_GRAY } from "../../utils/colors";
+import { LRZ_GRAY } from "@/lib/colors";
 
 export function BookmarkPlusButtonIcon() {
 	return (

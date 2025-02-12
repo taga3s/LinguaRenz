@@ -1,4 +1,4 @@
-import { LRZ_BLUE, LRZ_PURPLE } from "../../utils/colors";
+import { LRZ_BLUE, LRZ_PURPLE } from "@/lib/colors";
 
 export function SquareLineMenuIcon() {
 	return (

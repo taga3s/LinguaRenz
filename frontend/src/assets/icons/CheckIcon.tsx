@@ -1,4 +1,4 @@
-import { LRZ_GREEN } from "../../utils/colors";
+import { LRZ_GREEN } from "@/lib/colors";
 
 export function CheckIcon() {
 	return (

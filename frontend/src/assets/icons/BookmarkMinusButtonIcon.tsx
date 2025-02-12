@@ -1,4 +1,4 @@
-import { LRZ_ORANGE } from "../../utils/colors";
+import { LRZ_ORANGE } from "@/lib/colors";
 
 export function BookmarkMinusButtonIcon() {
 	return (

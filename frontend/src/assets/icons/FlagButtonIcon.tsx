@@ -1,4 +1,4 @@
-import { LRZ_ORANGE, LRZ_GRAY } from "@/app/utils/colors";
+import { LRZ_ORANGE, LRZ_GRAY } from "@/lib/colors";
 
 export function FlagButtonIcon() {
 	const flag = true;
