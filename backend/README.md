@@ -53,7 +53,7 @@ $ just it-db
 
 - mysql のコンテナ内で、ログインし、データベースを選択する。
 ```sh
-$ mysql -u lrz_pass -p
+$ mysql -u lrz_user -p
 $ Enter password: lrz_pass
 $ use lrz_db;
 ```
@@ -61,7 +61,7 @@ $ use lrz_db;
 ## ngrok の利用について
 ユーザーの初回ログイン時、Stack Auth から webhook を利用してバックエンドに Sync する方針を採っています。ローカル開発環境で検証を行うために、ngrok を利用してローカルサーバーを https で公開することとします。
 
-1. [ngrok](https://ngrok.com/) にアクセスし、サインアップとダウンロードを行う。
+1. [ngrok](https://ngrok.com/) にアクセスし、サインアップとインストールを行う。
 2. [Welcome ページ](https://dashboard.ngrok.com/get-started/setup/macos)の指示に従って、`Deploy your app online` まで一旦進める。
 3. [Domains](https://dashboard.ngrok.com/domains) で、固定ドメインを取得する。固定ドメインを用いて、以下のコマンドでローカルサーバーを公開する。
 ```sh
