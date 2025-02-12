@@ -9,7 +9,7 @@ type props = {
 	buttonName: string | null;
 };
 
-export default function SideTabButton(props: props) {
+export function SideTabButton(props: props) {
 	const { buttonType, buttonName } = props;
 	const changeButtonIcons = (buttonType: string | null) => {
 		switch (buttonType) {

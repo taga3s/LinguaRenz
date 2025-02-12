@@ -1,9 +1,8 @@
-import SideTabButton from "./button/SideTabButton";
+import { SideTabButton } from "./button/SideTabButton";
 
-export default function CommonTab() {
+export function SideTab() {
 	return (
 		<div className="w-1/5 h-screen bg-lrz-bg-gray p-4 flex flex-col">
-			{/* <h1>CommonTab</h1> */}
 			<div className="w-full flex flex-col flex-none">
 				<SideTabButton buttonType="article" buttonName="" />
 				<SideTabButton buttonType="history" buttonName="" />
