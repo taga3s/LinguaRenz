@@ -2,11 +2,8 @@ import type { Metadata } from "next";
 import { StackProvider, StackTheme } from "@stackframe/stack";
 import { stackServerApp } from "../stack";
 import { notoSans } from "./utils/fonts";
+import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
-// Test
-import { Logo } from "../assets/Logo";
-import { BookmarksMenuIcon } from "../assets/icons/BookmarksMenuIcon";
-import Flag from "react-flagpack";
 
 export const metadata: Metadata = {
 	title: "LinguaRenz",
@@ -20,15 +17,13 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="ja">
-			<body className={`${notoSans.variable} antialiased`}>
-				{/* TEST CODE: Please Remove Comment */}
-				{/* <Logo per={50} />
-				<Flag code="JP" hasBorder={false} />
-				<BookmarksMenuIcon /> */}
-				{/* ------ */}
+			<body
+				className={`${notoSans.variable} antialiased bg-lrz-bg-white text-lrz-text-black`}
+			>
 				<StackProvider app={stackServerApp}>
 					<StackTheme>{children}</StackTheme>
 				</StackProvider>
+				<Toaster />
 			</body>
 		</html>
 	);
