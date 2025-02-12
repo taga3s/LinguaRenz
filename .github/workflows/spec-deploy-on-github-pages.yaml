@@ -1,0 +1,42 @@
+name: spec-deploy-on-github-pages
+
+on:
+  push:
+    branches:
+      - develop
+    paths:
+      - 'spec/tsp-output/@typespec/openapi3/openapi.yaml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install swagger-cli
+        run: npm install -g swagger-cli
+
+      - name: Generate Swagger UI
+        uses: Legion2/swagger-ui-action@v1
+        with:
+          output: swagger-ui
+          spec-file: spec/tsp-output/@typespec/openapi3/openapi.yaml
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload documents
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: swagger-ui
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
