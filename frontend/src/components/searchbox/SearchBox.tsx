@@ -8,16 +8,16 @@ export default function SearchBox() {
                 <input
                     name=""
                     id=""
-                    className="w-[450px] p-2"
+                    className="w-[700px] p-2 border border-lrz-border"
                 />
                 <button
                     type="submit"
-                    className="px-4 py-2 bg-gradient-to-r from-lrz-blue to-lrz-purple rounded-[5%]"
+                    className="px-4 py-2 bg-gradient-to-r from-lrz-blue to-lrz-purple rounded-[5%] hover:opacity-80"
                 >
                     <SearchButtonIcon/>
                 </button>
             </div>
-            <div className="mt-6 flex gap-4">
+            <div className="mt-6 flex gap-4 items-center justify-around">
                 <p>検索したい言語：</p>
                 <LangPulldown />
             </div>

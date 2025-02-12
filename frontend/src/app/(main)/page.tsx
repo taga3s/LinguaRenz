@@ -10,7 +10,6 @@ export default function Page() {
 			<Logo per={100} />
 			<p>何を検索しますか？</p>
 			<SearchBox />
-			<CountryLabel />
 			{/* <UserButton />
 			<div>
 				<Link href="/bookmark/articles">/bookmark/articles</Link>

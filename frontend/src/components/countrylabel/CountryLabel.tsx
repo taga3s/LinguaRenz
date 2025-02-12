@@ -18,7 +18,7 @@ export default function CountryLabel(props: props) {
     return (
         <div
             className={
-                `flex gap-4 px-4 py-2
+                `flex gap-4 px-4 py-2 items-center
                 ${hasBorderClass(hasBorder)}`
             }
         >
