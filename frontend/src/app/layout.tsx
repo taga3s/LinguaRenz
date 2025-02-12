@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { StackProvider, StackTheme } from "@stackframe/stack";
 import { stackServerApp } from "../stack";
 import { notoSans } from "./utils/fonts";
+import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -22,6 +23,7 @@ export default function RootLayout({
 				<StackProvider app={stackServerApp}>
 					<StackTheme>{children}</StackTheme>
 				</StackProvider>
+				<Toaster />
 			</body>
 		</html>
 	);
