@@ -1,4 +1,4 @@
-import SideTab from "../../components/sidetab/SideTab";
+import { SideTab } from "../../components/sidetab/SideTab";
 
 export default function MainLayout({
 	children,
