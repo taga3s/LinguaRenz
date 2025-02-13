@@ -1,8 +1,5 @@
-import { UserButton } from "@stackframe/stack";
-import Link from "next/link";
 import { Logo } from "@/assets/Logo";
-import SearchBox from "@/components/searchbox/SearchBox";
-import CountryLabel from "@/components/countrylabel/CountryLabel";
+import { SearchBox } from "@/components/searchbox/SearchBox";
 
 export default function Page() {
 	return (
@@ -10,12 +7,6 @@ export default function Page() {
 			<Logo per={100} />
 			<p>何を検索しますか？</p>
 			<SearchBox />
-			{/* <UserButton />
-			<div>
-				<Link href="/bookmark/articles">/bookmark/articles</Link>
-				<br />
-				<Link href="/bookmark/search-history">/bookmark/search-history</Link>
-			</div> */}
 		</div>
 	);
 }

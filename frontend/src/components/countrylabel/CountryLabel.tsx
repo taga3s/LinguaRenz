@@ -7,7 +7,7 @@ type props = {
     hasBorder: boolean
 }
 
-export default function CountryLabel(props: props) {
+export function CountryLabel(props: props) {
     const { code, size, countryName, hasBorder } = props;
     const hasBorderClass = (hasBorder: boolean) => {
         if (hasBorder) {
