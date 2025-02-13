@@ -3,12 +3,12 @@ import Flag from "react-flagpack";
 type props = {
 	code: string;
 	size?: "S" | "M" | "L";
-	countryName: string;
-	hasBorder: boolean;
+	name: string;
+	withBorder: boolean;
 };
 
 export function CountryLabel(props: props) {
-	const { code, size, countryName, hasBorder } = props;
+	const { code, size, name, withBorder } = props;
 	const hasBorderClass = (hasBorder: boolean) => {
 		if (hasBorder) {
 			return "rounded-full bg-lrz-bg-white border border-lrz-border-gray";
@@ -18,7 +18,7 @@ export function CountryLabel(props: props) {
 	return (
 		<div
 			className={`flex gap-4 px-4 py-2 items-center
-                ${hasBorderClass(hasBorder)}`}
+                ${hasBorderClass(withBorder)}`}
 		>
 			<div className="border border-lrz-border-gray">
 				<Flag
@@ -28,7 +28,7 @@ export function CountryLabel(props: props) {
 					hasBorder={false}
 				/>
 			</div>
-			<p className="tracking-wider">{countryName}</p>
+			<p className="tracking-wider">{name}</p>
 		</div>
 	);
 }

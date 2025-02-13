@@ -12,15 +12,15 @@ type option = {
 const options: option[] = [
 	{
 		value: "日本",
-		label: <CountryLabel code="JP" countryName="日本" hasBorder={false} />,
+		label: <CountryLabel code="JP" name="日本" withBorder={false} />,
 	},
 	{
 		value: "アメリカ",
-		label: <CountryLabel code="US" countryName="アメリカ" hasBorder={false} />,
+		label: <CountryLabel code="US" name="アメリカ" withBorder={false} />,
 	},
 	{
 		value: "中国",
-		label: <CountryLabel code="CN" countryName="中国" hasBorder={false} />,
+		label: <CountryLabel code="CN" name="中国" withBorder={false} />,
 	},
 ];
 
