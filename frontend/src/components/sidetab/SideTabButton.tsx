@@ -6,13 +6,14 @@ import { UserMenuIcon } from "@/assets/icons/UserMenuIcon";
 
 type IconType = "article" | "history" | "newTab" | "settings";
 
-type props = {
+type Props = {
 	name: string;
 	iconType?: IconType;
+	handleClick?: () => void;
 };
 
-export function SideTabButton(props: props) {
-	const { iconType, name } = props;
+export function SideTabButton(props: Props) {
+	const { iconType, name, handleClick } = props;
 	const changeIcons = (iconType: IconType | undefined) => {
 		switch (iconType) {
 			case "article":
@@ -29,10 +30,10 @@ export function SideTabButton(props: props) {
 	};
 
 	return (
-		// TODO: change next/link component
 		<button
 			type="button"
 			className="px-8 py-4 w-full flex items-center justify-start gap-6 rounded-sm hover:bg-lrz-border-gray"
+			onClick={handleClick ?? (() => {})}
 		>
 			{changeIcons(iconType)}
 			<span className="font-zen font-bold tracking-wider">{name}</span>
